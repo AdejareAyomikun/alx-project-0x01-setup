@@ -1,7 +1,7 @@
 import React from "react";
-import {UsersProps} from "@/interfaces";
+import {UserProps} from "@/interfaces";
 
-const UserCard: React.FC<{user: UsersProps}> = ({
+const UserCard: React.FC<{user: UserProps}> = ({
   id,
   name,
   username,
