@@ -1,17 +1,36 @@
 import React from "react";
 import {UsersProps} from "@/interfaces";
 
-const UserCard: React.FC<{user: UsersProps}> = ({user}) =>{
+const UserCard: React.FC<{user: UsersProps}> = ({
+  id,
+  name,
+  username,
+  address,
+  email,
+  phone,
+  website,
+  company,
+}) =>{
     return (
-        <div className="p-4 rounded-lg shadow-md bg-white space-y-2">
-            <h2 className="text-xl font-bold">{user.name}</h2>
-            <p className="text-sm text-gray-500">@{user.username}</p>
-            <p>Email: <a href={`mailto:${user.email}`} className="text-blue-600">{user.email}</a></p>
-            <p>Phone: {user.phone}</p>
-            <p>Website: <a href={`http://${user.website}`} target="_blank" rel="noopener noreferrer" className="text-blue-600">{user.website}</a></p>
-            <p>Company: {user.company.name}</p>
-            <p>Address: {user.address.street}, {user.address.city}</p>
-        </div>
+         <div className="bg-white shadow-md hover:shadow-lg mx-auto my-6 p-6 rounded-lg max-w-xl transition-shadow duration-300">
+      <h2 className="mb-2 font-bold text-blue-700 text-2xl">{name}</h2>
+      <p className="text-gray-600">@{username}</p>
+      <p className="text-gray-600">{email}</p>
+      <p className="text-gray-600">{phone}</p>
+      <p className="mb-2 text-gray-600">{website}</p>
+
+      <div className="text-gray-500 text-sm">
+        <h4 className="font-semibold">Address:</h4>
+        <p>
+          {address.street}, {address.suite}, {address.city}
+        </p>
+        <p>Zip: {address.zipcode}</p>
+
+        <h4 className="mt-2 font-semibold">Company:</h4>
+        <p>{company.name}</p>
+        <p className="italic">"{company.catchPhrase}"</p>
+      </div>
+    </div>
     )
 }
 
